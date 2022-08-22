@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/get_pet_labels.py
 #                                                                             
-# PROGRAMMER: 
-# DATE CREATED:                                  
-# REVISED DATE: 
+# PROGRAMMER: Sabrina Powell
+# DATE CREATED: August 21, 2022                                 
+# REVISED DATE: August 22, 2022
 # PURPOSE: Create the function get_pet_labels that creates the pet labels from 
 #          the image's filename. This function inputs: 
 #           - The Image Folder as image_dir within get_pet_labels function and 
@@ -17,12 +17,9 @@
 #
 ##
 # Imports python modules
+from curses.ascii import isdigit
 from os import listdir
 
-# TODO 2: Define get_pet_labels function below please be certain to replace None
-#       in the return statement with results_dic dictionary that you create 
-#       with this function
-# 
 def get_pet_labels(image_dir):
     """
     Creates a dictionary of pet labels (results_dic) based upon the filenames 
@@ -40,6 +37,33 @@ def get_pet_labels(image_dir):
       List. The list contains for following item:
          index 0 = pet image label (string)
     """
-    # Replace None with the results_dic dictionary that you created with this
-    # function
-    return None
+    # Creates list of files in directory
+    files_list = listdir(image_dir)
+
+    # Creates empty dictionary for the results (pet labels, etc.)
+    results_dic = dict()
+
+    # Processes through each file in the directory, extracting only the words
+    # of the file that contain the pet image label
+    for filename in files_list:
+      # Skips file if starts with . (like .DS_Store of Mac OSX) because it 
+      # isn't an pet image file
+      if filename[0] != ".":
+        pet_label = ""
+
+        # Processes each letter in the filename before the first digit and adds it to the pet label
+        for letter in filename:
+          if isdigit(letter):
+            break
+          else:
+            pet_label += letter
+        
+        # Replaces the underscores in the string with whitespaces, remove trailing whitespaces and make pet label lower case
+        pet_label.replace("_", " ").strip().lower()
+
+        if filename not in results_dic:
+          results_dic[filename] = [pet_label]
+        else:
+          print("** Warning: Duplicate files exist in directory:", filename)
+    
+    return results_dic
