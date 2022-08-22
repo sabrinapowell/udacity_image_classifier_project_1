@@ -39,7 +39,6 @@ from print_results import print_results
 # Main program function defined below
 def main():
     start_time = time()
-    sleep(8)
     
     # TODO 1: Define get_input_args function within the file get_input_args.py
     # This function retrieves 3 Command Line Arugments from user as input from
@@ -116,11 +115,12 @@ def main():
     
     end_time = time()
     
-    # TODO 0: The seconds formatting is off. It should always use 2 digits
     tot_time = end_time - start_time
-    print("\n** Total Elapsed Runtime:",
-          str(int((tot_time/3600)))+":"+str(int((tot_time%3600)/60))+":"
-          +str(round((tot_time%3600)%60)) )
+    tot_hours = int((tot_time / 3600))
+    tot_mins = int((tot_time % 3600) / 60)
+    tot_secs = round((tot_time % 3600) % 60)
+    print("\n** Total Elapsed Runtime:", str(tot_hours).zfill(2) 
+        + ":" + str(tot_mins).zfill(2) + ":" + str(tot_secs).zfill(2))
     
 
 # Call to main function to run the program
