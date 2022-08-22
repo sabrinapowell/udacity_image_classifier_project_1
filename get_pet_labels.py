@@ -53,7 +53,7 @@ def get_pet_labels(image_dir):
 
         # Processes each letter in the filename before the first digit and adds it to the pet label
         for letter in filename:
-          if isdigit(letter):
+          if isdigit(letter) or letter == ".":
             break
           else:
             pet_label += letter
