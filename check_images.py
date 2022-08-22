@@ -122,7 +122,6 @@ def main():
     print("\n** Total Elapsed Runtime:", str(tot_hours).zfill(2) 
         + ":" + str(tot_mins).zfill(2) + ":" + str(tot_secs).zfill(2))
     
-
 # Call to main function to run the program
 if __name__ == "__main__":
     main()
