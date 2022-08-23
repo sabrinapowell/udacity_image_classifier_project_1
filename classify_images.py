@@ -64,7 +64,7 @@ def classify_images(images_dir, results_dic, model):
       # Classifies image
       model_label = classifier(images_dir + key, model)
       # Formats image for comparison
-      model_label.lower().strip()
+      model_label = model_label.lower().strip()
 
       # Retrieve the actual label from the results dictionary
       true_label = results_dic[key][0]
