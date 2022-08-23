@@ -70,25 +70,25 @@ def adjust_results4_isadog(results_dic, dogfile):
     with open(dogfile, "r") as dogname_file:
       # Reads in dognames from first line in file
       dogname = dogname_file.readline()
-
+      
       # Processes each line in file until reaching EOF (end-of-file)
       while dogname != "":
         # Process line by striping newline from dogname
-        dogname.strip()
-
+        dogname = dogname.strip()
+        
         # Adds dogname to dognames_list if it doesn't already exist in the list 
         if dogname not in dognames_list:
-          dognames_list.extend(dogname) # TODO: Some lines have multiple names. Check if they should be separated
-
+          dognames_list.append(dogname) # TODO: Some lines have multiple names. Check if they should be separated
+          
         # Reads in next line in file to be processed with while loop
         dogname = dogname_file.readline()
-      
+    
     # Add to whether pet labels & classifier labels are dogs by appending
     # two items to end of value(List) in results_dic. 
     for key in results_dic:
       pet_label_is_dog = 0
       classifier_label_is_dog = 0
-
+      
       # Pet Image Label IS of Dog (e.g. found in dognames_list)
       if results_dic[key][0] in dognames_list:
         pet_label_is_dog = 1
