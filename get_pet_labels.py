@@ -59,11 +59,11 @@ def get_pet_labels(image_dir):
             pet_label += letter
         
         # Replaces the underscores in the string with whitespaces, remove trailing whitespaces and make pet label lower case
-        pet_label.replace("_", " ").strip().lower()
-
+        pet_label = pet_label.replace("_", " ").strip().lower()
+        
         if filename not in results_dic:
           results_dic[filename] = [pet_label]
         else:
           print("** Warning: Duplicate files exist in directory:", filename)
-    
+
     return results_dic
