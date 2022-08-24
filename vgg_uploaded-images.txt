@@ -1,0 +1,75 @@
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = vgg 
+ dogfile = dognames.txt
+
+Pet Image Label Dictionary has 4 key-value pairs.
+Below are 4 of them:
+ 1 key:  American_Quarter_Horse_01.jpg  label:     american quarter horse
+ 2 key:        Brittany_Spaniel_01.jpg  label:           brittany spaniel
+ 3 key:        Brittany_Spaniel_02.jpg  label:           brittany spaniel
+ 4 key:                     cup_01.jpg  label:                        cup
+
+     MATCH:
+
+       Brittany_Spaniel_02.jpg: 
+Real:           brittany spaniel   Classifier:               brittany spaniel
+
+                    cup_01.jpg: 
+Real:                        cup   Classifier:                            cup
+
+ NOT A MATCH:
+
+ American_Quarter_Horse_01.jpg: 
+Real:     american quarter horse   Classifier:                         sorrel
+
+       Brittany_Spaniel_01.jpg: 
+Real:           brittany spaniel   Classifier:      vizsla, hungarian pointer
+
+# Total Images 4 # Matches: 2 # NOT Matches: 2
+
+     MATCH:
+
+       Brittany_Spaniel_02.jpg: 
+Real:           brittany spaniel   Classifier:               brittany spaniel  
+PetLabelDog: 1  ClassLabelDog: 1
+
+                    cup_01.jpg: 
+Real:                        cup   Classifier:                            cup  
+PetLabelDog: 0  ClassLabelDog: 0
+
+ NOT A MATCH:
+
+ American_Quarter_Horse_01.jpg: 
+Real:     american quarter horse   Classifier:                         sorrel  
+PetLabelDog: 0  ClassLabelDog: 0
+
+       Brittany_Spaniel_01.jpg: 
+Real:           brittany spaniel   Classifier:      vizsla, hungarian pointer  
+PetLabelDog: 1  ClassLabelDog: 1
+
+# Total Images 4 # Matches: 2 # NOT Matches: 2
+
+ ** Statistics from calculates_results_stats() function:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  50.0
+
+ ** Check Statistics - calculated from this function as a check:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  50.0
+
+
+*** Results Summary for CNN Model Architecture VGG ***
+N Images            :   4
+N Dog Images        :   2
+N Not-Dog Images    :   2
+ 
+pct_match           : 50.0
+pct_correct_dogs    : 100.0
+pct_correct_breed   : 50.0
+pct_correct_notdogs : 100.0
+
+INCORRECT Dog Breed Assignment:
+Real:           brittany spaniel   Classifier:      vizsla, hungarian pointer
+
+** Total Elapsed Runtime: 00:00:01
